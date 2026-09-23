@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LeetCode AI Helper</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 360px;
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .header span { font-size: 20px; }
+
+    .problem-box {
+      background: #16213e;
+      border: 1px solid #0f3460;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #a0a0b0;
+      min-height: 48px;
+    }
+
+    .problem-box strong {
+      color: #e94560;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    button:hover { opacity: 0.85; }
+
+    #hintBtn { background: #0f3460; color: #ffffff; }
+    #solutionBtn { background: #e94560; color: #ffffff; }
+    #complexityBtn { background: #533483; color: #ffffff; }
+
+    .result-box {
+      background: #16213e;
+      border: 1px solid #0f3460;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #c0c0d0;
+      max-height: 250px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .result-box h1, .result-box h2, .result-box h3 {
+      color: #ffffff;
+      margin: 10px 0 6px 0;
+      font-size: 14px;
+    }
+
+    .result-box strong { color: #e94560; }
+
+    .result-box code {
+      background: #0f3460;
+      color: #7ec8e3;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+
+    .result-box pre {
+      background: #0a1628;
+      border: 1px solid #0f3460;
+      border-radius: 6px;
+      padding: 10px;
+      overflow-x: auto;
+      margin: 8px 0;
+    }
+
+    .result-box pre code {
+      background: none;
+      padding: 0;
+      color: #7ec8e3;
+    }
+
+    .result-box ol, .result-box ul {
+      padding-left: 18px;
+      margin: 6px 0;
+    }
+
+    .result-box li { margin: 4px 0; }
+
+    .loader {
+      text-align: center;
+      color: #e94560;
+      font-size: 13px;
+      display: none;
+      margin-bottom: 8px;
+    }
+
+    .settings-link {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 12px;
+      color: #555577;
+    }
+
+    .settings-link a {
+      color: #e94560;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span>🧠</span>
+    <h1>LeetCode AI Helper</h1>
+  </div>
+
+  <div class="problem-box">
+    <strong id="problemTitle">Detecting problem...</strong>
+    <span id="problemSnippet"></span>
+  </div>
+
+  <div class="buttons">
+    <button id="hintBtn">💡 Give me Hints</button>
+    <button id="solutionBtn">✅ Full Solution</button>
+    <button id="complexityBtn">⏱ Complexity Analysis</button>
+  </div>
+
+  <div class="loader" id="loader">Thinking...</div>
+  <div class="result-box" id="resultBox"></div>
+
+  <div class="settings-link">
+    <a id="settingsLink">⚙️ Set API Key</a>
+  </div>
+
+  <script src="marked.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
